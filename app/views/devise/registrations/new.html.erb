@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-header">
+    <h3><%= t('.new_registration_title') %></h3>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="mb-3">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:t('.email_example') %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:t('.pass') %>
+        <% if @minimum_password_length %>
+        <%= f.label @minimum_password_length.to_s + t('.char_min_msg'), class:"form-text" %>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:t('.pass_conf') %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.sign_up_btn'), class:"btn btn-dark" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br/>
+<%= render "devise/shared/links" %>

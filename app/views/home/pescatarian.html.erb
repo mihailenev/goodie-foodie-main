@@ -1,0 +1,28 @@
+<h1>Pescatarian</h1>
+<div class="row my-4">
+<!-- get appropiate recipes via API request -->
+    <% results = getRecipesByDiet(8, @page_number.to_i, 'pescatarian')%>
+    <% recipes = results['results']%>
+    <!-- loop through them and produce a card for each -->
+    <!-- currently 8 meals displayed in 2 rows and 4 columns -->
+    <% recipes.each do |recipe| %>
+        <div class="col-3 my-3">                                   <!-- Column of 12 divided into sections of 3 for each food card-->
+            <div class="card border-3 bg-secondary rounded shadow border-3" style="width:275">                    <!-- CARD INSIDE OF CONTAINER  -->
+                <%=image_tag(recipe['image'], :class => "card-img-top", :alt => "recipe_img")%>           <!-- IMAGE INSIDE CARD -->
+                <div class="card-body">
+                <h5 class="card-title fw-bolder text-light"><%=recipe['title']%></h5>                      <!-- Name of the meal -->
+                <%=link_to "View recipe", mealpage_path(recipe['id']), class:"btn btn-primary btn shadow-sm"  %>                  <!-- Button link that leads you to the meal -->
+                </div>
+            </div>
+        </div>
+    <%end%>
+</div>
+
+<ul class="pagination">
+    <li class="page-item">
+        <%=link_to 'Previous page', pescatarian_path(@page_number.to_i - 1), class: "page-link"%>
+    </li>
+    <li class="page-item">
+        <%=link_to 'Next page', pescatarian_path(@page_number.to_i + 1), class: "page-link"%>
+    </li>
+</u>

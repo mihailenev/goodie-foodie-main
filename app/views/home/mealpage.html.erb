@@ -1,0 +1,93 @@
+
+  
+  <div class="container">
+    <!--<button type="button" class="btn btn-outline-danger my-2">Favourite</button>   Button to favourite meal-->
+    <%if user_signed_in? %>
+        <%if favourite_exists(current_user, @recipe['id'])%>
+            <%=button_to 'Remove favourite', removefavourite_path(@recipe['id']), method: 'put', class: "btn btn-danger my-2" %>
+        <%else%>
+            <%=button_to 'Favourite', addfavourite_path(@recipe['id']), method: 'put', class: "btn btn-success my-2"%>
+        <%end%>
+    <%end%>
+    <button type="button" class="btn btn-outline-info my-2 mx-1">Share</button>   <!-- Button to share meal via twitter-->
+
+    <% recipe_img = @recipe['image'] %>
+    
+    
+
+    <!-- Name of the meal-->
+    <h1 class="display-3 text-centre"> <%=@recipe['title']%> </h1>
+
+    <div class="row my-2">
+        <div class="col-6 ">
+            <!-- Image for the meal-->
+            <div class="card border-3 bg-dark w-50 shadow-sm" >
+                <%= image_tag "#{recipe_img}", class:"card-img-top"%>
+            </div>
+
+        </div>
+
+        <div class="col-6">
+            <!-- Description of meal-->
+            <p class="text"> <%=@recipe['summary'].html_safe %> 
+            </p>      
+
+            <!-- Cost and the time to cook the meal [included in description]-->
+            <!--<p class="h6">Cost:</p>-->
+            <!--<p class="h6">Time:</p>-->
+        </div>
+
+        <!-- Page divider-->
+        <hr class="mt-4 mb-4">
+
+    </div>
+
+
+    <div class="row my-2">
+
+        <div class="col-6 ">
+
+            <!-- Meal Instructions-->
+            <h3>Instructions</h3>
+            <%=@recipe['instructions']%>
+
+        </div> 
+
+        <div class="col-6 ">
+
+            <h3>Ingredients</h3>
+
+            <%@recipe['extendedIngredients'].each do |ingredient|%>
+                <%=ingredient['original']%>
+                <br>
+            <%end%>
+            
+        </div> 
+        
+
+        <hr class="mt-4 mb-3">
+
+        <!-- equipment if necessary... 
+        <div class="col-6">
+
+            <h3>Equipment</h3>
+
+           
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam error obcaecati incidunt. Aspernatur aliquid dolore maxime aut. Voluptatibus necessitatibus quod,
+                 veritatis vero labore libero est eveniet, ea, maxime quas ipsum error impedit reprehenderit! Sapiente accusamus nesciunt ipsa quae iusto suscipit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam error obcaecati incidunt. Aspernatur aliquid dolore maxime aut. Voluptatibus necessitatibus quod,
+                 veritatis vero labore libero est eveniet, ea, maxime quas ipsum error impedit reprehenderit! Sapiente accusamus nesciunt ipsa quae iusto suscipit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam error obcaecati incidunt. Aspernatur aliquid dolore maxime aut. Voluptatibus necessitatibus quod,
+                 veritatis vero labore libero est eveniet, ea, maxime quas ipsum error impedit reprehenderit! Sapiente accusamus nesciunt ipsa quae iusto suscipit.
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam error obcaecati incidunt. Aspernatur aliquid dolore maxime aut. Voluptatibus necessitatibus quod,
+                 veritatis vero labore libero est eveniet, ea, maxime quas ipsum error impedit reprehenderit! Sapiente accusamus nesciunt ipsa quae iusto suscipit.
+            </p>
+            
+        </div> 
+        -->
+
+    </div>
+
+  </div>
+
+

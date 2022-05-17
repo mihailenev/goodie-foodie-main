@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    <h3><%= t('.edit_password_title') %></h3>
+  </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="mb-3">
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control", placeholder:t('.new_pass') %>
+        <% if @minimum_password_length %>
+          <%= f.label @minimum_password_length.to_s + " characters minimum", class:"form-text" %>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder:t('.conf_pass') %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t('.change_password_btn_title'), class:"btn btn-danger" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br/>
+<%= render "devise/shared/links" %>

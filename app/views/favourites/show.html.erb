@@ -1,0 +1,12 @@
+<p>
+  <strong>Recipe:</strong>
+  <%= @favourite.recipe %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @favourite.user %>
+</p>
+
+<%= link_to 'Edit', edit_favourite_path(@favourite) %> |
+<%= link_to 'Back', favourites_path %>

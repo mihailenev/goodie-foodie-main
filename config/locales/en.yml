@@ -1,0 +1,99 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+
+
+  devise:
+    confirmations:
+      new:
+        new_confirmation_page_title: 'Resend confirmation instructions'
+        resend_btn_title: 'Resend confirmation instructions'
+    mailer:
+      confirmation_instructions:
+        page_title: 'Welcome '
+        page_msg: 'You can confirm your account email through the link below:'
+        confirm_btn_title: 'Confirm my account'
+      email_changed:
+        page_title: 'Hello '
+        page_msg1: "We're contacting you to notify you that your email is being changed to "
+        page_msg2: "We're contacting you to notify you that your email has been changed to "
+      password_change:
+        page_title: 'Hello '
+        page_msg: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        page_title: 'Hello '
+        page_msg1: 'Someone has requested a link to change your password. You can do this through the link below.'
+        change_password_btn_title: 'Change my password'
+        page_msg2: "If you didn't request this, please ignore this email."
+        page_msg3: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        page_title: 'Hello '
+        page_msg1: 'Your account has been locked due to an excessive number of unsuccessful sign in attempts.'
+        page_msg2: 'Click the link below to unlock your account:'
+        unlock_btn_title: 'Unlock my account'
+    sessions:
+      new:
+        new_session_title: "Log in"
+        email_enter: "Enter your email"
+        password_enter: "Enter your password"
+        log_in_btn_title: 'Log in'
+    passwords:
+      new:
+        new_password_title: "Forgot your password?"
+        email_enter: "Enter your email"
+        reset_btn: Send me reset password instructions
+      edit:
+        edit_password_title: "Change your password"
+        conf_pass: "Confirm new password"
+        new_pass: "New password"
+        change_password_btn_title: 'Change my password'
+    registrations:
+      new:
+        new_registration_title: "Sign up"
+        email_example: "Email"
+        pass: "Password"
+        pass_conf: "Password confirmation"
+        char_min_msg: ' characters minimum'
+        sign_up_btn: 'Sign up'
+      edit:
+        email_enter: "Enter your email"
+        password_enter: "New password (leave blank if you don't want to change it)"
+        password_conf: "Password confirmation"
+        current_password: "Current password"
+        current_password_msg: "(we need your current password to confirm your changes)"
+        char_min_msg: ' characters minimum'
+        update_btn_title: 'Update'
+        cancel_title: 'Cancel my account'
+        unhappy_msg: 'Unhappy with our service?'
+        cancel_btn_title: 'Cancel my account'
+        back_btn_title: 'Back'

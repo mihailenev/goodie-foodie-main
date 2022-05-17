@@ -1,0 +1,7 @@
+<p><%= t('.page_title') + @resource.email %>!</p>
+
+<p><%= t('.page_msg1') %></p>
+
+<p><%= t('.page_msg2') %></p>
+
+<p><%= link_to t('.unlock_btn_title'), unlock_url(@resource, unlock_token: @token) %></p>

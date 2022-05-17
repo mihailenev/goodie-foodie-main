@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    
+    <%= link_to 'GoodieFoodie', root_path, class:"navbar-brand" %>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <%= link_to 'Browse Meals', categories_path, class:"nav-link" %>                   
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'Leaderboard', leaderboard_path, class:"nav-link" %>         
+        </li>
+
+        <% if user_signed_in? %>
+          <li class='nav-item'><%= link_to 'Favourites', favouritespage_path, class:"nav-link" %> </li><!-- need path/route -->
+        <%end%>
+
+        <li class="nav-item">
+          <%= link_to 'About us', about_path, class:"nav-link" %>
+        </li>
+      
+
+        
+
+        </ul>
+
+      <% if user_signed_in? %>
+          <span class="navbar-text fst-italic mx-2">
+            <%= current_user.email %>
+          </span>
+          <li class="nav-item mx-2">
+  			      <%= link_to 'Edit profile', edit_user_registration_path, class:"btn btn-outline-primary" %>
+  		    </li>
+          
+        <%end%>
+
+      <form class="d-flex mx-2">
+        <!-- If user is signed in, he will be able to see Sign out option -->
+        <% if user_signed_in? %>
+	       <%= link_to 'Log out', destroy_user_session_path, method: :delete, class:"btn btn-outline-danger" %>
+
+        <% else %>
+        <!-- If user is not signed in, he will be able to see Sign up and Log in options -->
+	       <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-outline-success" %>
+	       <%= " / " %>
+	       <%= link_to 'Log in', new_user_session_path, class:"btn btn-outline-primary" %>
+        <% end %>
+
+        
+      </form>
+
+      
+     
+    
+      
+    </div>
+  </div>
+</nav>
+    
+  
+
+
+
+<!-- flash messages -->
+<%flash.each do |key, value|%> 
+<%  content_tag :div, content_tag(:p, value), id: '#{key}' unless value.blank?%> 
+<%end%>

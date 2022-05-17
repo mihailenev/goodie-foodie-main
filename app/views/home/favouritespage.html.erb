@@ -1,0 +1,19 @@
+<!-- loops through favourites table and looks for the ones that match the current user -->
+<!-- generates a card for each of these -->
+<h3>Favourites</h3>
+<%favourites = @favourites%>
+<% favourites.each do |favourite| %>
+  <%if favourite.user.email === current_user.email %>
+    <% recipe = getRecipeById(favourite.recipe)%>
+    <div class="col-3 my-3">                                   <!-- Column of 12 divided into sections of 3 for each food card-->
+      <div class="card border-3 bg-secondary rounded shadow border-3" style="width:275">                    <!-- CARD INSIDE OF CONTAINER  -->
+        <%=image_tag(recipe['image'], :class => "card-img-top", :alt => "recipe_img")%>           <!-- IMAGE INSIDE CARD -->
+        <div class="card-body">
+          <h5 class="card-title fw-bolder text-light"><%=recipe['title']%></h5>                      <!-- Name of the meal -->
+          <%=link_to "View recipe", mealpage_path(recipe['id']), class:"btn btn-primary btn shadow-sm"  %>
+          <%= link_to 'Remove', favourite, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+<%end%>    

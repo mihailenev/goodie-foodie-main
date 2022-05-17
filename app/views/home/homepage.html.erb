@@ -1,0 +1,23 @@
+
+<!-- Intro text and image -->
+<section id="intro">
+  <div class="container-lg">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-5 text-center text-md-start">   <!-- Default sized screen text is in the center then as the screen gets larger it will be moved to the left -->
+        <h1>
+          <div class="display-2">Goodie Foodie </div>
+          <div class="display-5">Your journey begins here</div>
+        </h1>
+        <% if user_signed_in? %>
+          <%= link_to 'Browse meals', categories_path, class:"btn btn-success btn-lg" %>
+        <% else %>
+          <%= link_to 'Sign up for free!', new_user_registration_path, class:"btn btn-secondary btn-lg" %>
+        <% end %>
+      </div>
+      <div class="col-md-5 text-center d-none d-md-block">
+        <!--previous class: img-fluid-->
+        <%=image_tag("meal-image.jpg", :alt => 'meal image')%>
+      </div>
+    </div>
+  </div>
+</section>
